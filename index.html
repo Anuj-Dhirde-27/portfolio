@@ -3,55 +3,417 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="description" content="Anuj Dhirde - AWS Cloud Engineer Portfolio">
     <title>Anuj Dhirde | AWS Cloud Engineer</title>
 
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body id="top">
 
-    <h1>Anuj Dhirde</h1>
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#top" class="logo">Anuj Dhirde</a>
 
-    <h2>AWS Cloud Engineer</h2>
+            <nav class="nav-links" aria-label="Primary navigation">
+                <a class="active" href="#top">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#contact">Contact</a>
+                <a href="#top" class="theme-icon" aria-label="Dark theme">
+                    <i class="fa-solid fa-moon"></i>
+                </a>
+            </nav>
+        </div>
+    </header>
 
-    <p>
-        AWS Certified Solutions Architect – Associate
-    </p>
+    <main>
 
-    <hr>
+        <!-- ==================== HERO ==================== -->
+        <section class="hero">
+            <div class="container hero-grid">
 
-    <h2>About Me</h2>
+                <div class="hero-content">
+                    <p class="eyebrow">Hi, I'm</p>
 
-    <p>
-        I am a Programmer Analyst at Cognizant with experience
-        in network integration, infrastructure and cloud technologies.
-        I am currently building my expertise in AWS and Cloud Engineering.
-    </p>
+                    <h1>Anuj Dhirde</h1>
 
-    <h2>Skills</h2>
+                    <h2>AWS Cloud Engineer</h2>
 
-    <ul>
-        <li>AWS</li>
-        <li>Networking</li>
-        <li>Docker</li>
-        <li>Kubernetes</li>
-        <li>Java</li>
-        <li>Spring Boot</li>
-        <li>SQL</li>
-    </ul>
+                    <div class="cert-line">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span>AWS Certified Solutions Architect – Associate</span>
+                    </div>
 
-    <h2>Certification</h2>
+                    <p class="hero-description">
+                        Programmer Analyst at Cognizant with experience in network
+                        integration, infrastructure and cloud technologies. Passionate
+                        about building secure, scalable and highly available cloud solutions.
+                    </p>
 
-    <p>
-        AWS Certified Solutions Architect – Associate
-    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fa-solid fa-link"></i>
+                            View My Projects
+                        </a>
 
-    <h2>Experience</h2>
+                        <!-- Replace resume.pdf with your actual resume filename -->
+                        <a href="resume.pdf" class="btn btn-secondary" download>
+                            <i class="fa-solid fa-download"></i>
+                            Download Resume
+                        </a>
+                    </div>
 
-    <p>
-        Programmer Analyst – Cognizant
-    </p>
+                    <div class="social-links">
+                        <!-- Replace these URLs with your real profiles -->
+                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer"
+                           aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+                           aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+
+                        <a href="mailto:your-email@example.com" aria-label="Email">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+
+                    <!-- Placeholder portrait -->
+                    <div class="profile-ring">
+                        <div class="profile-avatar">AD</div>
+                    </div>
+
+                    <div class="aws-cloud">
+                        <i class="fa-brands fa-aws"></i>
+                    </div>
+
+                    <div class="service-grid">
+
+                        <div class="service-node">
+                            <i class="fa-solid fa-database"></i>
+                            <span>S3</span>
+                        </div>
+
+                        <div class="service-node">
+                            <i class="fa-solid fa-server"></i>
+                            <span>EC2</span>
+                        </div>
+
+                        <div class="service-node">
+                            <i class="fa-solid fa-diagram-project"></i>
+                            <span>VPC</span>
+                        </div>
+
+                        <div class="service-node">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>Lambda</span>
+                        </div>
+
+                        <div class="service-node">
+                            <i class="fa-solid fa-globe"></i>
+                            <span>CloudFront</span>
+                        </div>
+
+                        <div class="service-node">
+                            <i class="fa-solid fa-route"></i>
+                            <span>Route 53</span>
+                        </div>
+
+                        <div class="service-node">
+                            <i class="fa-solid fa-table"></i>
+                            <span>DynamoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== ABOUT + SKILLS ==================== -->
+        <section class="section section-paired" id="about">
+            <div class="container two-column">
+
+                <article class="panel">
+                    <div class="section-heading">
+                        <i class="fa-regular fa-user"></i>
+                        <h2>About Me</h2>
+                    </div>
+
+                    <p>
+                        I am a Programmer Analyst at Cognizant working on IT infrastructure
+                        and network integration for M&amp;A projects. I enjoy solving
+                        real-world infrastructure problems and building reliable cloud
+                        solutions. I am currently expanding my expertise in AWS,
+                        DevOps and modern cloud architecture.
+                    </p>
+
+                    <div class="about-details">
+                        <div>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Nagpur, Maharashtra, India</span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>B.Tech in Mechanical Engineering</span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>your-email@example.com</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="panel" id="skills">
+                    <div class="section-heading">
+                        <i class="fa-solid fa-code"></i>
+                        <h2>Technical Skills</h2>
+                    </div>
+
+                    <div class="skill-list">
+                        <span class="skill-tag"><i class="fa-brands fa-aws"></i>AWS</span>
+                        <span class="skill-tag"><i class="fa-solid fa-server"></i>EC2</span>
+                        <span class="skill-tag"><i class="fa-solid fa-database"></i>S3</span>
+                        <span class="skill-tag"><i class="fa-solid fa-network-wired"></i>VPC</span>
+                        <span class="skill-tag"><i class="fa-solid fa-key"></i>IAM</span>
+                        <span class="skill-tag"><i class="fa-solid fa-route"></i>Route 53</span>
+                        <span class="skill-tag"><i class="fa-solid fa-globe"></i>CloudFront</span>
+                        <span class="skill-tag"><i class="fa-solid fa-bolt"></i>Lambda</span>
+                        <span class="skill-tag"><i class="fa-solid fa-table"></i>DynamoDB</span>
+                        <span class="skill-tag"><i class="fa-brands fa-docker"></i>Docker</span>
+                        <span class="skill-tag"><i class="fa-solid fa-cubes"></i>Kubernetes</span>
+                        <span class="skill-tag"><i class="fa-brands fa-linux"></i>Linux</span>
+                        <span class="skill-tag"><i class="fa-brands fa-github"></i>Git &amp; GitHub</span>
+                        <span class="skill-tag"><i class="fa-solid fa-network-wired"></i>Networking</span>
+                        <span class="skill-tag"><i class="fa-brands fa-java"></i>Java</span>
+                        <span class="skill-tag"><i class="fa-solid fa-leaf"></i>Spring Boot</span>
+                        <span class="skill-tag"><i class="fa-solid fa-database"></i>SQL</span>
+                    </div>
+
+                    <div class="learning-note">
+                        Always learning something new <span>🚀</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ==================== PROJECTS ==================== -->
+        <section class="section" id="projects">
+            <div class="container">
+
+                <div class="section-title-row">
+                    <div class="section-heading">
+                        <i class="fa-solid fa-diagram-project"></i>
+                        <h2>Featured Projects</h2>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+
+                    <article class="project-card project-green">
+                        <div class="project-icon">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+
+                        <div>
+                            <h3>AWS Static Portfolio Website</h3>
+                            <p>
+                                Deployed a personal portfolio using S3, CloudFront and
+                                Route 53 with HTTPS through ACM.
+                            </p>
+
+                            <div class="project-tags">
+                                <span>S3</span>
+                                <span>CloudFront</span>
+                                <span>Route 53</span>
+                                <span>ACM</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card project-orange">
+                        <div class="project-icon">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+
+                        <div>
+                            <h3>Highly Available Web App</h3>
+                            <p>
+                                Designed a highly available web application using an
+                                Application Load Balancer and EC2 instances across
+                                multiple Availability Zones.
+                            </p>
+
+                            <div class="project-tags">
+                                <span>EC2</span>
+                                <span>ALB</span>
+                                <span>Auto Scaling</span>
+                                <span>Multi-AZ</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card project-purple">
+                        <div class="project-icon">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+
+                        <div>
+                            <h3>Serverless Application</h3>
+                            <p>
+                                Learning project using API Gateway, AWS Lambda and
+                                DynamoDB to build an event-driven serverless application.
+                            </p>
+
+                            <div class="project-tags">
+                                <span>API Gateway</span>
+                                <span>Lambda</span>
+                                <span>DynamoDB</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== EXPERIENCE + CERTIFICATION ==================== -->
+        <section class="section" id="experience">
+            <div class="container two-column">
+
+                <article class="panel experience-panel">
+                    <div class="section-heading">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <h2>Experience</h2>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-top">
+                            <div>
+                                <h3>Programmer Analyst</h3>
+                                <p class="company">Cognizant</p>
+                            </div>
+
+                            <span class="date">Sep 2024 – Present</span>
+                        </div>
+
+                        <ul>
+                            <li>Working on IT M&amp;A projects involving network integration and infrastructure setup.</li>
+                            <li>Coordinating with cross-functional teams for technology transitions.</li>
+                            <li>Handling network, firewall and infrastructure service requests.</li>
+                            <li>Creating SOPs, documentation and knowledge-sharing material.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="panel certification-panel" id="certifications">
+                    <div class="section-heading">
+                        <i class="fa-solid fa-trophy"></i>
+                        <h2>Certification</h2>
+                    </div>
+
+                    <div class="certification-content">
+                        <div class="cert-badge">
+                            <i class="fa-brands fa-aws"></i>
+                            <small>AWS<br>Certified</small>
+                            <strong>SOLUTIONS<br>ARCHITECT</strong>
+                            <span>ASSOCIATE</span>
+                        </div>
+
+                        <div>
+                            <h3>AWS Certified Solutions Architect – Associate</h3>
+                            <p>
+                                AWS cloud architecture certification focused on designing
+                                secure, resilient, high-performing and cost-optimized solutions.
+                            </p>
+
+                            <!-- Replace with your AWS Certification URL -->
+                            <a href="#" class="cert-link">
+                                View Certificate <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT ==================== -->
+        <section class="section" id="contact">
+            <div class="container">
+
+                <div class="contact-header">
+                    <div class="section-heading">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <h2>Let's Connect</h2>
+                    </div>
+
+                    <p>
+                        Always open to discussing new opportunities, collaborating on
+                        exciting projects or talking about cloud and technology.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+
+                    <a href="mailto:your-email@example.com" class="contact-card">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <span>Email</span>
+                            <strong>your-email@example.com</strong>
+                        </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/" target="_blank"
+                       rel="noopener noreferrer" class="contact-card">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                        <div>
+                            <span>LinkedIn</span>
+                            <strong>linkedin.com/in/your-profile</strong>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/" target="_blank"
+                       rel="noopener noreferrer" class="contact-card">
+                        <i class="fa-brands fa-github"></i>
+                        <div>
+                            <span>GitHub</span>
+                            <strong>github.com/your-username</strong>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container footer-inner">
+            <p>© 2026 Anuj Dhirde. All rights reserved.</p>
+            <a href="#top" class="back-to-top" aria-label="Back to top">
+                <i class="fa-solid fa-chevron-up"></i>
+            </a>
+        </div>
+    </footer>
 
 </body>
 </html>
