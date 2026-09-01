@@ -1,173 +1,623 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Anuj Dhirde - AWS Cloud Engineer Portfolio">
-<title>Anuj Dhirde | AWS Cloud Engineer</title>
+<meta name="description" content="Anuj Dhirde — AWS Cloud & Network Engineer. AWS Certified Solutions Architect – Associate. Serverless projects, network migration experience, and automation.">
+<title>Anuj Dhirde · AWS Cloud & Network Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="stylesheet" href="style.css">
+<style>
+:root{
+  --bg:#eef2f9; --paper:#ffffff; --ink:#0f1b2d; --ink-soft:#43526b; --ink-faint:#7183a0;
+  --line:#d3dcea; --line-soft:#e4eaf3;
+  --accent:#1f5fd6; --accent-soft:#e7effc; --accent-ink:#1a4fb3;
+  --verify:#0d9a72; --verify-soft:#e2f5ee;
+  --amber:#d5852a; --amber-soft:#fbeed8;
+  --grid:rgba(31,95,214,.05);
+  --shadow:0 18px 44px -22px rgba(15,27,45,.34);
+  --shadow-lift:0 26px 60px -26px rgba(15,27,45,.45);
+  --radius:14px; --radius-sm:9px; --wrap:1140px;
+}
+html[data-theme="dark"]{
+  --bg:#0a1120; --paper:#101b30; --ink:#eaf1fb; --ink-soft:#a9bad6; --ink-faint:#71829f;
+  --line:#243553; --line-soft:#1a2740;
+  --accent:#4d92ff; --accent-soft:#132644; --accent-ink:#8ab6ff;
+  --verify:#2bd39c; --verify-soft:#0e2b23;
+  --amber:#f0a94a; --amber-soft:#2c2113;
+  --grid:rgba(120,170,255,.06);
+  --shadow:0 20px 48px -24px rgba(0,0,0,.7);
+  --shadow-lift:0 28px 66px -28px rgba(0,0,0,.8);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{
+  min-width:320px;background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans","Segoe UI",Roboto,Arial,sans-serif;line-height:1.62;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:34px 34px;
+  -webkit-font-smoothing:antialiased;transition:background .35s,color .35s;
+}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,.mono-off{font-family:"Space Grotesk",sans-serif}
+.mono{font-family:"IBM Plex Mono",monospace}
+.wrap{width:min(var(--wrap),calc(100% - 44px));margin-inline:auto}
+.eyebrow{font-family:"Space Grotesk";font-size:13px;font-weight:600;color:var(--accent);letter-spacing:.2px;margin-bottom:6px}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:0;z-index:200;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{height:66px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Space Grotesk";font-weight:700;font-size:18px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:var(--verify);box-shadow:0 0 0 4px var(--verify-soft);flex:none}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{padding:8px 12px;border-radius:8px;font-size:14px;font-weight:500;color:var(--ink-soft);transition:.2s}
+.nav-links a:hover{color:var(--ink);background:var(--line-soft)}
+.nav-links a.active{color:var(--accent);background:var(--accent-soft)}
+.nav-tools{display:flex;align-items:center;gap:8px}
+.icon-btn{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--line);border-radius:9px;background:var(--paper);color:var(--ink-soft);cursor:pointer;transition:.2s}
+.icon-btn:hover{color:var(--accent);border-color:var(--accent)}
+.menu-btn{display:none}
+
+/* ---------- HERO ---------- */
+.hero{padding:54px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:46px;align-items:center}
+.avail{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--verify);border-radius:999px;background:var(--verify-soft);color:var(--verify);font-size:12.5px;font-weight:600;margin-bottom:20px}
+.avail .live{width:8px;height:8px;border-radius:50%;background:var(--verify);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--verify) 60%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.hero h1{font-size:clamp(38px,5.4vw,62px);line-height:1.02;letter-spacing:-1.6px;font-weight:700}
+.hero .role{font-size:clamp(19px,2.4vw,25px);color:var(--accent);font-weight:600;margin-top:8px;font-family:"Space Grotesk"}
+.hero p.lede{color:var(--ink-soft);font-size:16.5px;max-width:60ch;margin-top:16px}
+.cert-chip{display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:9px 14px;border:1px solid var(--line);border-radius:11px;background:var(--paper);box-shadow:var(--shadow)}
+.cert-chip .aws{width:30px;height:30px;border-radius:7px;display:grid;place-items:center;background:var(--ink);color:#fff;font-size:15px}
+html[data-theme="dark"] .cert-chip .aws{background:#000}
+.cert-chip b{font-family:"Space Grotesk";font-size:13.5px}
+.cert-chip .vd{display:inline-flex;align-items:center;gap:5px;color:var(--verify);font-size:12px;font-weight:600;padding-left:10px;border-left:1px solid var(--line)}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:12px 18px;border-radius:10px;font-family:"Space Grotesk";font-weight:600;font-size:14.5px;cursor:pointer;transition:.22s;border:1px solid transparent}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 14px 30px -14px var(--accent)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 36px -16px var(--accent)}
+.btn-ghost{background:var(--paper);border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.socials{display:flex;gap:9px;margin-top:22px}
+.socials a{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink-soft);transition:.2s}
+.socials a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
+
+/* ---------- ARCH DIAGRAM (signature) ---------- */
+.diagram-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-lift);overflow:hidden}
+.diagram-head{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line);background:linear-gradient(var(--line-soft),transparent)}
+.diagram-head .tt{display:flex;align-items:center;gap:9px;font-family:"Space Grotesk";font-weight:600;font-size:13.5px}
+.diagram-head .tt i{color:var(--accent)}
+.dots{display:flex;gap:6px}.dots span{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.diagram-body{padding:18px 16px 10px}
+.arch svg{width:100%;height:auto;display:block}
+.node rect{fill:var(--paper);stroke:var(--line);stroke-width:1.5;transition:.25s}
+.node .lbl{font-family:"Space Grotesk";font-weight:600;font-size:11px;fill:var(--ink)}
+.node .svc{font-family:"IBM Plex Mono";font-size:8.5px;fill:var(--ink-faint)}
+.node .ic{font-family:"Font Awesome 6 Free";font-weight:900;font-size:14px;fill:var(--accent)}
+.node{cursor:pointer}
+.node:hover rect,.node.on rect{stroke:var(--accent);stroke-width:2.4;filter:drop-shadow(0 6px 14px color-mix(in srgb,var(--accent) 30%,transparent))}
+.flow{fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:5 7;opacity:.5;animation:dash 1.1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-24}}
+.diagram-cap{padding:11px 16px 15px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-soft);min-height:44px;transition:.2s}
+.diagram-cap b{color:var(--ink);font-family:"Space Grotesk"}
+
+/* ---------- STATS ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 15px}
+.stat .n{font-family:"Space Grotesk";font-weight:700;font-size:27px;letter-spacing:-.5px;color:var(--accent);line-height:1}
+.stat .l{font-size:12.5px;color:var(--ink-soft);margin-top:6px}
+
+/* ---------- SECTIONS ---------- */
+section{padding:46px 0}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.sec-head .no{font-family:"IBM Plex Mono";font-size:13px;color:var(--accent);background:var(--accent-soft);padding:5px 9px;border-radius:7px}
+.sec-head h2{font-size:clamp(24px,3vw,32px);letter-spacing:-.8px;font-weight:700}
+.sec-head p{color:var(--ink-faint);font-size:14px;margin-left:auto;text-align:right;max-width:38ch}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:22px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.about-grid p{color:var(--ink-soft);font-size:15.5px}
+.about-grid p+p{margin-top:13px}
+.facts{display:grid;gap:14px}
+.fact{display:flex;gap:13px;align-items:flex-start}
+.fact i{width:38px;height:38px;flex:none;display:grid;place-items:center;border-radius:9px;background:var(--accent-soft);color:var(--accent)}
+.fact .k{font-size:12px;color:var(--ink-faint)}
+.fact .v{font-family:"Space Grotesk";font-weight:600;font-size:14.5px}
+
+/* ---------- SKILLS ---------- */
+.skill-legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;font-size:13px;color:var(--ink-soft)}
+.skill-legend span{display:inline-flex;align-items:center;gap:7px}
+.lg{width:11px;height:11px;border-radius:3px}
+.lg.prof{background:var(--accent)}.lg.cert{background:var(--verify)}.lg.learn{background:var(--amber)}
+.skill-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill-block h3{font-size:15px;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.skill-block .sub{font-size:12px;color:var(--ink-faint);margin-bottom:13px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:7px 11px;border-radius:8px;font-size:12.5px;font-weight:500;border:1px solid var(--line);background:var(--paper);transition:.2s}
+.chip:hover{transform:translateY(-2px)}
+.chip.prof{border-color:color-mix(in srgb,var(--accent) 45%,var(--line));color:var(--accent-ink);background:var(--accent-soft)}
+.chip.cert{border-color:color-mix(in srgb,var(--verify) 45%,var(--line));color:var(--verify);background:var(--verify-soft)}
+.chip.learn{border-color:color-mix(in srgb,var(--amber) 50%,var(--line));color:var(--amber);background:var(--amber-soft)}
+
+/* ---------- PROJECTS ---------- */
+.proj-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:20px;align-items:start}
+.proj{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.proj-top{padding:20px 22px 0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.proj-ic{width:46px;height:46px;border-radius:11px;display:grid;place-items:center;font-size:20px;background:var(--accent-soft);color:var(--accent)}
+.pill{font-size:11.5px;font-weight:600;padding:5px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+.pill.live{background:var(--verify-soft);color:var(--verify)}
+.pill.wip{background:var(--amber-soft);color:var(--amber)}
+.proj-body{padding:14px 22px 20px;display:flex;flex-direction:column;flex:1}
+.proj-body h3{font-size:19px;letter-spacing:-.4px}
+.proj-body .yr{font-family:"IBM Plex Mono";font-size:12px;color:var(--ink-faint);margin:3px 0 10px}
+.proj-body>p{color:var(--ink-soft);font-size:14px}
+.proj ul{list-style:none;margin:14px 0 0;display:grid;gap:8px}
+.proj li{position:relative;padding-left:22px;font-size:13.3px;color:var(--ink-soft)}
+.proj li:before{content:"\f0c1";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;left:0;top:1px;color:var(--accent);font-size:10px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.tag{font-family:"IBM Plex Mono";font-size:11px;padding:4px 8px;border-radius:6px;background:var(--line-soft);color:var(--ink-soft)}
+.tag.plan{border:1px dashed var(--amber);color:var(--amber);background:transparent}
+.proj-foot{margin-top:auto;padding-top:16px}
+.proj-link{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:9px;background:var(--ink);color:var(--bg);font-family:"Space Grotesk";font-weight:600;font-size:13px;transition:.2s}
+html[data-theme="dark"] .proj-link{background:var(--accent);color:#fff}
+.proj-link:hover{transform:translateY(-2px)}
+.proj-note{font-size:12.5px;color:var(--ink-faint);display:inline-flex;align-items:center;gap:8px}
+
+/* ---------- TIMELINE ---------- */
+.timeline{position:relative;margin-left:8px;padding-left:30px;border-left:2px solid var(--line)}
+.tl-item{position:relative;padding-bottom:30px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item:before{content:"";position:absolute;left:-39px;top:3px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--accent)}
+.tl-item.now:before{background:var(--accent);box-shadow:0 0 0 5px var(--accent-soft)}
+.tl-top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px}
+.tl-top h3{font-size:17px}
+.tl-date{font-family:"IBM Plex Mono";font-size:12px;color:var(--accent);white-space:nowrap}
+.tl-co{color:var(--ink-soft);font-size:14px;font-weight:500}
+.tl-role{color:var(--ink-faint);font-size:13px;margin-bottom:9px}
+.tl-item ul{list-style:none;display:grid;gap:6px}
+.tl-item li{position:relative;padding-left:18px;font-size:13.5px;color:var(--ink-soft)}
+.tl-item li:before{content:"";position:absolute;left:2px;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.tl-item .win{color:var(--ink);font-weight:500}
+
+/* ---------- CERT + EDU ---------- */
+.ce-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cert-face{display:flex;gap:18px;align-items:center}
+.badge{width:96px;height:112px;flex:none;border-radius:12px;border:1.5px solid var(--accent);background:linear-gradient(160deg,var(--accent-soft),var(--paper));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;padding:8px}
+.badge i{font-size:24px;color:var(--ink)}
+html[data-theme="dark"] .badge i{color:var(--ink)}
+.badge .b1{font-size:8.5px;color:var(--ink-faint);font-weight:600}
+.badge .b2{font-family:"Space Grotesk";font-weight:700;font-size:10px;line-height:1.15}
+.badge .b3{font-size:8px;color:var(--accent);font-weight:700;letter-spacing:.5px}
+.cert-face h3{font-size:17px}
+.cert-face .code{font-family:"IBM Plex Mono";font-size:12.5px;color:var(--ink-faint);margin:4px 0 8px}
+.cert-face p{font-size:13.5px;color:var(--ink-soft)}
+.verify-link{display:inline-flex;align-items:center;gap:8px;margin-top:12px;color:var(--verify);font-weight:600;font-size:13px}
+.verify-link:hover{text-decoration:underline}
+.edu-row{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.edu-row h3{font-size:16px}.edu-row .co{color:var(--ink-soft);font-size:13.5px}
+.edu-meta{text-align:right;font-family:"IBM Plex Mono";font-size:12px;color:var(--ink-faint);white-space:nowrap}
+.edu-meta b{display:block;color:var(--accent);font-family:"Space Grotesk";font-size:14px}
+
+/* ---------- CONTACT ---------- */
+.contact{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:34px;box-shadow:var(--shadow-lift);text-align:center}
+.contact h2{font-size:clamp(24px,3vw,32px);letter-spacing:-.6px}
+.contact p{color:var(--ink-soft);max-width:52ch;margin:12px auto 0;font-size:15px}
+.contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;text-align:left}
+.cc{display:flex;align-items:center;gap:13px;padding:15px;border:1px solid var(--line);border-radius:11px;background:var(--bg);transition:.2s}
+.cc:hover{border-color:var(--accent);transform:translateY(-2px)}
+.cc i{width:42px;height:42px;flex:none;display:grid;place-items:center;border-radius:10px;background:var(--accent-soft);color:var(--accent);font-size:17px}
+.cc .k{font-size:11.5px;color:var(--ink-faint)}
+.cc .v{font-family:"Space Grotesk";font-weight:600;font-size:13.5px;overflow-wrap:anywhere}
+
+footer{border-top:1px solid var(--line);margin-top:20px}
+.foot-in{height:62px;display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:var(--ink-faint)}
+.foot-in .up{width:36px;height:36px;display:grid;place-items:center;border-radius:9px;border:1px solid var(--line);color:var(--ink-soft)}
+.foot-in .up:hover{color:var(--accent);border-color:var(--accent)}
+
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+@media (max-width:920px){
+  .hero-grid,.about-grid,.proj-grid,.ce-grid,.skill-cols{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .sec-head p{display:none}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--paper);border-bottom:1px solid var(--line);padding:10px 22px;gap:2px}
+  .menu-btn{display:grid}
+  .contact-cards{grid-template-columns:1fr}
+}
+@media (max-width:480px){
+  .stats{grid-template-columns:1fr 1fr}
+  .cert-face{flex-direction:column;text-align:center;align-items:center}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
 </head>
 <body id="top">
 
-<header class="navbar">
-  <div class="container nav-container">
-    <a href="#top" class="logo">Anuj Dhirde</a>
-    <nav class="nav-links" aria-label="Primary navigation">
-      <a class="active" href="#top">Home</a><a href="#about">About</a>
-      <a href="#skills">Skills</a><a href="#projects">Projects</a>
-      <a href="#experience">Experience</a><a href="#certifications">Certification</a>
-      <a href="#contact">Contact</a><a href="#top" class="theme-icon"><i class="fa-solid fa-moon"></i></a>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><span class="dot"></span>Anuj Dhirde</a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#certification">Certification</a>
+      <a href="#contact">Contact</a>
     </nav>
+    <div class="nav-tools">
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle colour theme"><i class="fa-solid fa-moon"></i></button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
   </div>
 </header>
 
 <main>
-<section class="hero">
-  <div class="container hero-grid">
-    <div class="hero-content">
-      <p class="eyebrow">Hi, I'm</p>
+<!-- ================= HERO ================= -->
+<section class="hero" id="home" style="padding-top:54px">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="avail"><span class="live"></span>Open to Cloud &amp; Systems Engineer roles</span>
       <h1>Anuj Dhirde</h1>
-      <h2>AWS Cloud Engineer</h2>
-      <div class="cert-line"><i class="fa-solid fa-certificate"></i><span>AWS Certified Solutions Architect – Associate</span></div>
-      <p class="hero-description">AWS Certified Solutions Architect – Associate with 2+ years of enterprise infrastructure experience at Cognizant, transitioning into cloud engineering. Focused on secure, scalable and highly available AWS solutions.</p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-diagram-project"></i> View My Projects</a>
-        <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Let's Connect</a>
+      <div class="role">AWS Cloud &amp; Network Engineer</div>
+      <p class="lede">I build serverless applications on AWS and coordinate enterprise network migrations across M&amp;A sites. Two years of hands-on infrastructure work at Cognizant, now focused on well-architected, automated cloud systems.</p>
+
+      <a class="cert-chip" href="https://www.credly.com/badges/ed4014f2-9a04-493d-a7c4-89e90210c9aa/public_url" target="_blank" rel="noopener">
+        <span class="aws"><i class="fa-brands fa-aws"></i></span>
+        <b>AWS Solutions Architect &ndash; Associate</b>
+        <span class="vd"><i class="fa-solid fa-circle-check"></i>Verified</span>
+      </a>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-diagram-project"></i> See my work</a>
+        <a class="btn btn-ghost" href="#contact"><i class="fa-solid fa-paper-plane"></i> Get in touch</a>
       </div>
-      <div class="social-links">
-        <a href="https://github.com/anuj-dhirde-27" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/anuj-dhirde" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="mailto:anujdhirde@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+      <div class="socials">
+        <a href="https://github.com/Anuj-Dhirde-27" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/anuj-dhirde" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:anujdhirde@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="profile-ring"><div class="profile-avatar">AD</div></div>
-      <div class="aws-cloud"><i class="fa-brands fa-aws"></i></div>
-      <div class="service-grid">
-        <div class="service-node"><i class="fa-solid fa-database"></i><span>S3</span></div>
-        <div class="service-node"><i class="fa-solid fa-server"></i><span>EC2</span></div>
-        <div class="service-node"><i class="fa-solid fa-network-wired"></i><span>VPC</span></div>
-        <div class="service-node"><i class="fa-solid fa-bolt"></i><span>Lambda</span></div>
-        <div class="service-node"><i class="fa-solid fa-globe"></i><span>CloudFront</span></div>
-        <div class="service-node"><i class="fa-solid fa-route"></i><span>Route 53</span></div>
-        <div class="service-node"><i class="fa-solid fa-table"></i><span>DynamoDB</span></div>
+
+    <!-- SIGNATURE: interactive architecture diagram -->
+    <div class="diagram-card arch">
+      <div class="diagram-head">
+        <span class="tt"><i class="fa-solid fa-sitemap"></i> EventHub &mdash; live architecture</span>
+        <span class="dots"><span></span><span></span><span></span></span>
+      </div>
+      <div class="diagram-body">
+        <svg viewBox="0 0 460 300" role="img" aria-label="EventHub serverless architecture diagram">
+          <!-- flows -->
+          <path class="flow" d="M70 60 H160" />
+          <path class="flow" d="M250 60 H340" />
+          <path class="flow" d="M210 88 V150 H130 V172" />
+          <path class="flow" d="M210 88 V150 H300 V172" />
+          <!-- nodes -->
+          <g class="node" data-cap="<b>User&rsquo;s browser</b> loads the static site and calls the API over HTTPS.">
+            <rect x="14" y="36" width="56" height="48" rx="9"/>
+            <text class="ic" x="42" y="60" text-anchor="middle">&#xf109;</text>
+            <text class="lbl" x="42" y="76" text-anchor="middle">Client</text>
+          </g>
+          <g class="node" data-cap="<b>Amazon S3</b> hosts the static web frontend (HTML/CSS/JS) and stores the events data file.">
+            <rect x="160" y="30" width="90" height="60" rx="9"/>
+            <text class="ic" x="205" y="56" text-anchor="middle">&#xf1c0;</text>
+            <text class="lbl" x="205" y="72" text-anchor="middle">S3</text>
+            <text class="svc" x="205" y="84" text-anchor="middle">static + data</text>
+          </g>
+          <g class="node" data-cap="<b>Amazon API Gateway</b> exposes REST endpoints (POST/GET) and routes requests to Lambda.">
+            <rect x="340" y="30" width="106" height="60" rx="9"/>
+            <text class="ic" x="393" y="56" text-anchor="middle">&#xf0ec;</text>
+            <text class="lbl" x="393" y="72" text-anchor="middle">API Gateway</text>
+            <text class="svc" x="393" y="84" text-anchor="middle">REST /events</text>
+          </g>
+          <g class="node on" data-cap="<b>AWS Lambda (Python)</b> &mdash; two independent functions handle subscriptions and event creation. No servers to manage.">
+            <rect x="150" y="150" width="120" height="60" rx="9"/>
+            <text class="ic" x="210" y="176" text-anchor="middle">&#xf0e7;</text>
+            <text class="lbl" x="210" y="192" text-anchor="middle">Lambda (Python)</text>
+            <text class="svc" x="210" y="204" text-anchor="middle">2 microservices</text>
+          </g>
+          <g class="node" data-cap="<b>Amazon SNS</b> delivers email notifications to everyone subscribed to an event.">
+            <rect x="60" y="172" width="90" height="52" rx="9" transform="translate(10,0)"/>
+            <text class="ic" x="115" y="196" text-anchor="middle">&#xf0e0;</text>
+            <text class="lbl" x="115" y="212" text-anchor="middle">SNS email</text>
+          </g>
+          <g class="node" data-cap="<b>CloudWatch + IAM</b> &mdash; least-privilege roles secure every call; CloudWatch logs power troubleshooting.">
+            <rect x="300" y="172" width="96" height="52" rx="9"/>
+            <text class="ic" x="348" y="196" text-anchor="middle">&#xf3ed;</text>
+            <text class="lbl" x="348" y="212" text-anchor="middle">IAM + logs</text>
+          </g>
+        </svg>
+      </div>
+      <div class="diagram-cap" id="diagramCap"><b>Hover a service</b> to see its role in the build. This is my EventHub project, running on AWS.</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><div class="n" data-to="2" data-suffix="+ yrs">0</div><div class="l">Enterprise IT experience</div></div>
+      <div class="stat"><div class="n" data-to="10" data-suffix="+">0</div><div class="l">M&amp;A sites integrated</div></div>
+      <div class="stat"><div class="n" data-to="70" data-suffix="%">0</div><div class="l">Manual validation time cut</div></div>
+      <div class="stat"><div class="n" data-static="SAA-C03">SAA-C03</div><div class="l">AWS certified, 2026</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">01</span><h2>About</h2><p>Where I come from and where I&rsquo;m heading.</p></div>
+    <div class="about-grid">
+      <div class="card">
+        <p>I&rsquo;m a Programmer Analyst at Cognizant, working as a network engineer on IT Merger &amp; Acquisition integration. My day-to-day is gathering requirements, planning connectivity solutions, and coordinating the migration of acquired sites into the enterprise network with implementation, security, and architecture teams.</p>
+        <p>Alongside that, I earned my AWS Solutions Architect &ndash; Associate certification and build serverless projects hands-on. My networking background gives me a practical view of how cloud systems connect and stay secure &mdash; and I&rsquo;m now moving fully toward cloud and systems engineering, with automation and well-architected design at the centre.</p>
+      </div>
+      <div class="card facts">
+        <div class="fact"><i class="fa-solid fa-location-dot"></i><div><div class="k">Based in</div><div class="v">Pune, India &middot; Remote</div></div></div>
+        <div class="fact"><i class="fa-solid fa-graduation-cap"></i><div><div class="k">Education</div><div class="v">B.E. &middot; CGPA 8.3 / 10</div></div></div>
+        <div class="fact"><i class="fa-solid fa-briefcase"></i><div><div class="k">Current focus</div><div class="v">AWS cloud &amp; automation</div></div></div>
+        <div class="fact"><i class="fa-solid fa-language"></i><div><div class="k">Working with</div><div class="v">Cross-functional teams</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="about">
-<div class="container two-column">
-<article class="panel">
-<div class="section-heading"><i class="fa-regular fa-user"></i><h2>About Me</h2></div>
-<p>AWS Certified Solutions Architect – Associate with 2+ years of enterprise infrastructure experience at Cognizant. I coordinate network migrations across M&amp;A sites and am moving into cloud engineering through hands-on AWS projects involving serverless architecture, Terraform and CI/CD automation.</p>
-<div class="about-details">
-<div><i class="fa-solid fa-location-dot"></i><span>Pune, India</span></div>
-<div><i class="fa-solid fa-graduation-cap"></i><span>B.E. Mechanical Engineering · CGPA 8.3/10</span></div>
-<div><i class="fa-solid fa-envelope"></i><a href="mailto:anujdhirde@gmail.com">anujdhirde@gmail.com</a></div>
-</div>
-</article>
-
-<article class="panel" id="skills">
-<div class="section-heading"><i class="fa-solid fa-code"></i><h2>Technical Skills</h2></div>
-<div class="skill-group"><h3>AWS Cloud</h3><div class="skill-list">
-<span>S3</span><span>EC2</span><span>VPC</span><span>IAM</span><span>API Gateway</span><span>Lambda</span><span>SNS</span><span>DynamoDB</span><span>CloudFront</span><span>Route 53</span><span>CloudWatch</span><span>ELB</span><span>Cognito</span><span>RDS</span><span>VPN</span>
-</div></div>
-<div class="skill-group"><h3>IaC &amp; DevOps</h3><div class="skill-list">
-<span>Terraform</span><span>CloudFormation</span><span>GitHub Actions</span><span>Docker</span><span>ECS/Fargate</span><span>Kubernetes</span><span>Linux CLI</span>
-</div></div>
-<div class="skill-group"><h3>Networking</h3><div class="skill-list">
-<span>Cisco R&amp;S</span><span>BGP</span><span>OSPF</span><span>VLANs</span><span>WLAN/WLC</span><span>ACL</span><span>Cisco Meraki</span><span>Zscaler</span><span>RA VPN</span><span>Hybrid Connectivity</span><span>Firewalls</span>
-</div></div>
-<div class="skill-group"><h3>Programming</h3><div class="skill-list"><span>Python</span><span>Bash</span><span>SQL</span></div></div>
-</article>
-</div>
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">02</span><h2>Skills</h2><p>Grouped by how I&rsquo;d rate myself &mdash; honestly.</p></div>
+    <div class="skill-legend">
+      <span><span class="lg prof"></span>Hands-on / working proficiency</span>
+      <span><span class="lg cert"></span>Certified knowledge (SAA-C03)</span>
+      <span><span class="lg learn"></span>Actively learning</span>
+    </div>
+    <div class="skill-cols">
+      <div class="card skill-block">
+        <h3><i class="fa-brands fa-aws" style="color:var(--accent)"></i> AWS</h3>
+        <div class="sub">Built with, plus broader certified knowledge</div>
+        <div class="chips">
+          <span class="chip prof">Lambda</span><span class="chip prof">S3</span><span class="chip prof">API Gateway</span>
+          <span class="chip prof">IAM</span><span class="chip prof">SNS</span><span class="chip prof">CloudWatch</span>
+          <span class="chip cert">EC2</span><span class="chip cert">VPC</span><span class="chip cert">Route 53</span>
+          <span class="chip cert">ELB</span><span class="chip cert">DynamoDB</span><span class="chip cert">CloudFront</span>
+          <span class="chip cert">Cognito</span><span class="chip cert">RDS</span>
+        </div>
+      </div>
+      <div class="card skill-block">
+        <h3><i class="fa-solid fa-network-wired" style="color:var(--accent)"></i> Networking &amp; Systems</h3>
+        <div class="sub">My core background</div>
+        <div class="chips">
+          <span class="chip prof">TCP/IP</span><span class="chip prof">DNS</span><span class="chip prof">Routing &amp; Switching</span>
+          <span class="chip prof">VLANs</span><span class="chip prof">BGP</span><span class="chip prof">OSPF</span>
+          <span class="chip prof">Cisco / Meraki</span><span class="chip prof">Zscaler</span><span class="chip prof">RA VPN</span>
+          <span class="chip prof">Firewalls</span><span class="chip prof">Linux CLI</span>
+        </div>
+      </div>
+      <div class="card skill-block">
+        <h3><i class="fa-solid fa-terminal" style="color:var(--accent)"></i> Code &amp; Tooling</h3>
+        <div class="sub">Automation, scripting, and what&rsquo;s next</div>
+        <div class="chips">
+          <span class="chip prof">Python</span><span class="chip prof">Bash</span><span class="chip prof">Git</span>
+          <span class="chip prof">SQL</span><span class="chip prof">REST APIs</span>
+          <span class="chip learn">Terraform</span><span class="chip learn">Docker</span>
+          <span class="chip learn">CI/CD (GitHub Actions)</span><span class="chip learn">Kubernetes</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="projects">
-<div class="container">
-<div class="section-heading"><i class="fa-solid fa-diagram-project"></i><h2>Featured Projects</h2></div>
-<div class="projects-grid">
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">03</span><h2>Projects</h2><p>Real builds, with the code to back them.</p></div>
+    <div class="proj-grid">
 
-<article class="project-card project-blue">
-<div class="project-icon"><i class="fa-solid fa-bullhorn"></i></div>
-<div>
-<p class="project-label">AWS · Serverless · Personal Project · 2026</p>
-<h3>EventHub – Serverless Event Announcement Platform</h3>
-<p>Designed and deployed a serverless event announcement platform using managed AWS services. Users can view upcoming events, subscribe for email notifications and create event announcements through an API-driven workflow.</p>
-<ul class="project-bullets">
-<li>S3 hosts the static website and stores the events.json data file.</li>
-<li>API Gateway exposes REST endpoints for subscriptions and event creation.</li>
-<li>Lambda functions process requests and update event data in S3.</li>
-<li>SNS delivers email notifications to subscribed users.</li>
-<li>Configured CORS and IAM permissions for service-to-service integration.</li>
-</ul>
-<div class="project-tags"><span>S3</span><span>API Gateway</span><span>Lambda</span><span>SNS</span><span>IAM</span><span>REST API</span><span>CORS</span></div>
-<a class="project-link" href="https://github.com/Anuj-Dhirde-27/eventhub-aws-serverless-application" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> View Project on GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-</div>
-</article>
+      <div class="proj">
+        <div class="proj-top">
+          <div class="proj-ic"><i class="fa-solid fa-bullhorn"></i></div>
+          <span class="pill live"><i class="fa-solid fa-circle-check"></i>Live on GitHub</span>
+        </div>
+        <div class="proj-body">
+          <h3>EventHub &mdash; Serverless Event Platform</h3>
+          <div class="yr">AWS &middot; Serverless &middot; 2026</div>
+          <p>A fully serverless platform where users browse events, subscribe for email alerts, and post new events through an API-driven workflow &mdash; with no servers to manage.</p>
+          <ul>
+            <li>Two independent Python Lambda functions behind API Gateway REST endpoints (POST/GET).</li>
+            <li>S3 hosts the static frontend and stores event data; SNS sends subscriber email notifications.</li>
+            <li>Least-privilege IAM roles and CORS secure every browser-to-service call.</li>
+            <li>CloudWatch logs used for end-to-end troubleshooting; documented with a diagram and demo video.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">S3</span><span class="tag">API Gateway</span><span class="tag">Lambda</span>
+            <span class="tag">SNS</span><span class="tag">IAM</span><span class="tag">CloudWatch</span><span class="tag">REST</span>
+          </div>
+          <div class="proj-foot">
+            <a class="proj-link" href="https://github.com/Anuj-Dhirde-27/eventhub-aws-serverless-application" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View the code</a>
+          </div>
+        </div>
+      </div>
 
-<article class="project-card project-purple">
-<div class="project-icon"><i class="fa-solid fa-code-branch"></i></div>
-<div>
-<p class="project-label">Cloud Engineering</p>
-<h3>Infrastructure as Code &amp; CI/CD</h3>
-<p>Applied infrastructure-as-code and deployment automation concepts to AWS application development, focusing on reproducible infrastructure and automated delivery.</p>
-<ul class="project-bullets">
-<li>Provisioned AWS resources using Terraform.</li>
-<li>Automated build and deployment with GitHub Actions.</li>
-<li>Documented the architecture for reproducibility.</li>
-</ul>
-<div class="project-tags"><span>Terraform</span><span>GitHub Actions</span><span>AWS</span><span>Docker</span></div>
-</div>
-</article>
+      <div class="proj">
+        <div class="proj-top">
+          <div class="proj-ic" style="background:var(--amber-soft);color:var(--amber)"><i class="fa-solid fa-code-branch"></i></div>
+          <span class="pill wip"><i class="fa-solid fa-hammer"></i>In progress</span>
+        </div>
+        <div class="proj-body">
+          <h3>EventHub v2 &mdash; IaC &amp; CI/CD</h3>
+          <div class="yr">Terraform &middot; Automation &middot; building now</div>
+          <p>Rebuilding EventHub as reproducible infrastructure: provisioning every resource with Terraform, adding a DynamoDB data tier and Cognito login, and shipping changes through an automated pipeline.</p>
+          <ul>
+            <li>Provision the full stack as code with Terraform instead of the console.</li>
+            <li>Automate build and deploy with a GitHub Actions pipeline.</li>
+            <li>Add DynamoDB and Amazon Cognito for a proper data and auth tier.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag plan">Terraform</span><span class="tag plan">GitHub Actions</span>
+            <span class="tag plan">DynamoDB</span><span class="tag plan">Cognito</span>
+          </div>
+          <div class="proj-foot">
+            <span class="proj-note"><i class="fa-solid fa-circle-notch"></i> Repository going public when the first milestone ships.</span>
+          </div>
+        </div>
+      </div>
 
-</div>
-</div>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="experience">
-<div class="container two-column">
-<article class="panel">
-<div class="section-heading"><i class="fa-solid fa-briefcase"></i><h2>Experience</h2></div>
-<div class="experience-item">
-<div class="experience-top"><div><h3>Programmer Analyst</h3><p class="company">Cognizant Technology Solutions</p><p class="role">Network Engineer – IT M&amp;A Integration</p></div><span class="date">Sep 2024 – Present</span></div>
-<ul><li>Coordinated integration of 10+ M&amp;A sites into the Cognizant enterprise network.</li><li>Gathered LAN and SSID requirements and drove Cisco/Meraki network migrations.</li><li>Planned secure remote-access migrations using RA VPN and Zscaler.</li><li>Worked with design and network teams on post-migration connectivity solutions.</li></ul>
-</div>
-<div class="experience-item"><div class="experience-top"><div><h3>CDP Network Intern</h3><p class="company">Cognizant Technology Solutions</p></div><span class="date">Jun 2024 – Aug 2024</span></div><ul><li>Completed CCNA-track hands-on labs covering BGP, TCP/IP, VLANs, routing and switching.</li><li>Practiced WLC, IOS upgrades, ACLs and L2/L3 device deployment workflows.</li></ul></div>
-<div class="experience-item"><div class="experience-top"><div><h3>Full Stack Web Developer Intern</h3><p class="company">NLT Infotech</p></div><span class="date">Aug 2023 – Feb 2024</span></div><ul><li>Built a full-stack client application using Spring Boot, Angular, REST APIs and SQL.</li><li>Resolved critical production defects.</li></ul></div>
-</article>
-
-<article class="panel" id="certifications">
-<div class="section-heading"><i class="fa-solid fa-trophy"></i><h2>Certification</h2></div>
-<div class="certification-content">
-<div class="cert-badge"><i class="fa-brands fa-aws"></i><small>AWS<br>Certified</small><strong>SOLUTIONS<br>ARCHITECT</strong><span>ASSOCIATE</span></div>
-<div><h3>AWS Certified Solutions Architect – Associate</h3><p class="cert-code">SAA-C03 · 2026</p><p>Validates knowledge of designing secure, resilient, high-performing and cost-optimized AWS architectures.</p><a class="cert-link" href="https://www.credly.com/badges/ed4014f2-9a04-493d-a7c4-89e90210c9aa/public_url" target="_blank" rel="noopener noreferrer">View Credential <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
-</div>
-</article>
-</div>
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">04</span><h2>Experience</h2><p>Two years across networking, migration, and automation.</p></div>
+    <div class="card">
+      <div class="timeline">
+        <div class="tl-item now">
+          <div class="tl-top"><h3>Programmer Analyst</h3><span class="tl-date">Sep 2024 &ndash; Present</span></div>
+          <div class="tl-co">Cognizant Technology Solutions &middot; Pune (Remote)</div>
+          <div class="tl-role">Network Engineer &mdash; IT M&amp;A Integration</div>
+          <ul>
+            <li class="win">Built a Python/Bash automation tool for connectivity validation, cutting manual effort ~70% (≈53&rarr;15 min per cycle) &mdash; earned a Cognizant Recognition Award.</li>
+            <li>Coordinated integration of 10+ M&amp;A sites into the enterprise network with implementation, security, and architecture teams.</li>
+            <li>Gathered LAN/SSID requirements and drove Cisco/Meraki network migrations into the Cognizant environment.</li>
+            <li>Planned secure remote-access migrations using RA VPN and Zscaler.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-top"><h3>CDP Network Intern</h3><span class="tl-date">Jun 2024 &ndash; Aug 2024</span></div>
+          <div class="tl-co">Cognizant Technology Solutions &middot; Chennai</div>
+          <ul>
+            <li>Completed CCNA-track labs: BGP, TCP/IP, VLANs, routing &amp; switching, WLC, IOS upgrades, ACLs, L2/L3.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-top"><h3>Full Stack Web Developer Intern</h3><span class="tl-date">Aug 2023 &ndash; Feb 2024</span></div>
+          <div class="tl-co">NLT Infotech &middot; Nagpur</div>
+          <ul>
+            <li>Built a full-stack client application with Spring Boot, Angular, REST APIs, and SQL; resolved production defects.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container"><article class="panel">
-<div class="section-heading"><i class="fa-solid fa-graduation-cap"></i><h2>Education</h2></div>
-<div class="education-content"><div><h3>Bachelor of Engineering – Mechanical Engineering</h3><p class="company">G.H. Raisoni College of Engineering, Nagpur</p></div><div class="education-meta"><span>Aug 2019 – Jun 2023</span><strong>CGPA: 8.3 / 10.0</strong></div></div>
-</article></div>
+<!-- ================= CERT + EDU ================= -->
+<section id="certification">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">05</span><h2>Certification &amp; Education</h2><p>Verifiable, and one clear credential.</p></div>
+    <div class="ce-grid">
+      <div class="card">
+        <div class="cert-face">
+          <div class="badge">
+            <i class="fa-brands fa-aws"></i>
+            <span class="b1">AWS Certified</span>
+            <span class="b2">SOLUTIONS<br>ARCHITECT</span>
+            <span class="b3">ASSOCIATE</span>
+          </div>
+          <div>
+            <h3>AWS Solutions Architect &ndash; Associate</h3>
+            <div class="code">SAA-C03 &middot; 2026</div>
+            <p>Validates designing secure, resilient, high-performing, and cost-optimised architectures on AWS.</p>
+            <a class="verify-link" href="https://www.credly.com/badges/ed4014f2-9a04-493d-a7c4-89e90210c9aa/public_url" target="_blank" rel="noopener"><i class="fa-solid fa-circle-check"></i> Verify on Credly</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="edu-row">
+          <div>
+            <h3>B.E. Mechanical Engineering</h3>
+            <div class="co">G.H. Raisoni College of Engineering, Nagpur</div>
+          </div>
+          <div class="edu-meta">Aug 2019 &ndash; Jun 2023<b>CGPA 8.3</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="contact">
-<div class="container">
-<div class="contact-header"><div class="section-heading"><i class="fa-solid fa-paper-plane"></i><h2>Let's Connect</h2></div><p>Open to Cloud Engineer, Cloud Network Engineer and Cloud Architect opportunities, as well as conversations around AWS and infrastructure.</p></div>
-<div class="contact-grid">
-<a href="mailto:anujdhirde@gmail.com" class="contact-card"><i class="fa-solid fa-envelope"></i><div><span>Email</span><strong>anujdhirde@gmail.com</strong></div></a>
-<a href="https://www.linkedin.com/in/anuj-dhirde" target="_blank" rel="noopener noreferrer" class="contact-card"><i class="fa-brands fa-linkedin-in"></i><div><span>LinkedIn</span><strong>linkedin.com/in/anuj-dhirde</strong></div></a>
-<a href="https://github.com/anuj-dhirde-27" target="_blank" rel="noopener noreferrer" class="contact-card"><i class="fa-brands fa-github"></i><div><span>GitHub</span><strong>github.com/anuj-dhirde-27</strong></div></a>
-</div>
-</div>
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Let&rsquo;s build something</h2>
+      <p>Open to Cloud Engineer, Cloud Network Engineer, and Systems Development Engineer roles &mdash; and always happy to talk AWS and infrastructure.</p>
+      <div class="contact-cards">
+        <a class="cc" href="mailto:anujdhirde@gmail.com"><i class="fa-solid fa-envelope"></i><div><div class="k">Email</div><div class="v">anujdhirde@gmail.com</div></div></a>
+        <a class="cc" href="https://www.linkedin.com/in/anuj-dhirde" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i><div><div class="k">LinkedIn</div><div class="v">in/anuj-dhirde</div></div></a>
+        <a class="cc" href="https://github.com/Anuj-Dhirde-27" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i><div><div class="k">GitHub</div><div class="v">Anuj-Dhirde-27</div></div></a>
+      </div>
+    </div>
+  </div>
 </section>
 </main>
 
-<footer><div class="container footer-inner"><p>© 2026 Anuj Dhirde. All rights reserved.</p><a href="#top" class="back-to-top"><i class="fa-solid fa-chevron-up"></i></a></div></footer>
+<footer>
+  <div class="wrap foot-in">
+    <span>&copy; 2026 Anuj Dhirde &middot; Built and hosted by me.</span>
+    <a class="up" href="#top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  // ---- Theme toggle (session only; no storage) ----
+  var root=document.documentElement, tBtn=document.getElementById('themeBtn');
+  tBtn.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark';
+    root.setAttribute('data-theme',dark?'light':'dark');
+    tBtn.innerHTML='<i class="fa-solid fa-'+(dark?'moon':'sun')+'"></i>';
+  });
+
+  // ---- Mobile menu ----
+  var mBtn=document.getElementById('menuBtn'), links=document.getElementById('navLinks');
+  mBtn.addEventListener('click',function(){ links.classList.toggle('open'); });
+  links.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ links.classList.remove('open'); }); });
+
+  // ---- Scroll-spy ----
+  var sections=[].slice.call(document.querySelectorAll('main section[id]'));
+  var navMap={}; links.querySelectorAll('a').forEach(function(a){ navMap[a.getAttribute('href').slice(1)]=a; });
+  var spy=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        Object.values(navMap).forEach(function(a){a.classList.remove('active');});
+        var m=navMap[e.target.id]; if(m) m.classList.add('active');
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  sections.forEach(function(s){spy.observe(s);});
+
+  // ---- Architecture diagram: hover to explain ----
+  var cap=document.getElementById('diagramCap'), defCap=cap.innerHTML;
+  document.querySelectorAll('.arch .node').forEach(function(n){
+    function show(){ document.querySelectorAll('.arch .node').forEach(function(x){x.classList.remove('on');}); n.classList.add('on'); cap.innerHTML=n.getAttribute('data-cap'); }
+    n.addEventListener('mouseenter',show);
+    n.addEventListener('focus',show);
+    n.setAttribute('tabindex','0');
+  });
+
+  // ---- Animated stat counters (once, on view) ----
+  var counted=false;
+  var statObs=new IntersectionObserver(function(entries){
+    if(counted) return;
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return; counted=true;
+      document.querySelectorAll('.stat .n').forEach(function(el){
+        if(el.dataset.static){ el.textContent=el.dataset.static; return; }
+        var to=+el.dataset.to, suf=el.dataset.suffix||'', t0=null;
+        function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/900,1); el.textContent=Math.round(p*to)+suf; if(p<1)requestAnimationFrame(step); }
+        requestAnimationFrame(step);
+      });
+    });
+  },{threshold:.4});
+  var s=document.querySelector('.stats'); if(s) statObs.observe(s);
+})();
+</script>
 </body>
 </html>
