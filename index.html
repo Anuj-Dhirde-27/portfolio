@@ -132,7 +132,7 @@ section{padding:46px 0}
 .skill-legend span{display:inline-flex;align-items:center;gap:7px}
 .lg{width:11px;height:11px;border-radius:3px}
 .lg.prof{background:var(--accent)}.lg.cert{background:var(--verify)}.lg.learn{background:var(--amber)}
-.skill-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .skill-block h3{font-size:15px;margin-bottom:5px;display:flex;align-items:center;gap:8px}
 .skill-block .sub{font-size:12px;color:var(--ink-faint);margin-bottom:13px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -355,7 +355,7 @@ footer{border-top:1px solid var(--line);margin-top:20px}
     <div class="about-grid">
       <div class="card">
         <p>I&rsquo;m a Programmer Analyst at Cognizant, working as a network engineer on IT Merger &amp; Acquisition integration. My day-to-day is gathering requirements, planning connectivity solutions, and coordinating the migration of acquired sites into the enterprise network with implementation, security, and architecture teams.</p>
-        <p>Alongside that, I earned my AWS Solutions Architect &ndash; Associate certification and build serverless projects hands-on. My networking background gives me a practical view of how cloud systems connect and stay secure &mdash; and I&rsquo;m now moving fully toward cloud and systems engineering, with automation and well-architected design at the centre.</p>
+        <p>Alongside that, I earned my AWS Solutions Architect &ndash; Associate certification and build hands-on AWS projects &mdash; a serverless event platform and a three-tier, highly available web application. My networking background gives me a practical view of how cloud systems connect and stay secure, and I&rsquo;m now moving fully toward cloud and systems engineering, with automation and well-architected design at the centre.</p>
       </div>
       <div class="card facts">
         <div class="fact"><i class="fa-solid fa-location-dot"></i><div><div class="k">Based in</div><div class="v">Pune, India &middot; Remote</div></div></div>
@@ -370,42 +370,46 @@ footer{border-top:1px solid var(--line);margin-top:20px}
 <!-- ================= SKILLS ================= -->
 <section id="skills">
   <div class="wrap">
-    <div class="sec-head"><span class="no">02</span><h2>Skills</h2><p>Grouped by how I&rsquo;d rate myself &mdash; honestly.</p></div>
-    <div class="skill-legend">
-      <span><span class="lg prof"></span>Hands-on / working proficiency</span>
-      <span><span class="lg cert"></span>Certified knowledge (SAA-C03)</span>
-      <span><span class="lg learn"></span>Actively learning</span>
-    </div>
+    <div class="sec-head"><span class="no">02</span><h2>Skills</h2><p>Built across two AWS projects and my networking work.</p></div>
     <div class="skill-cols">
       <div class="card skill-block">
         <h3><i class="fa-brands fa-aws" style="color:var(--accent)"></i> AWS</h3>
-        <div class="sub">Built with, plus broader certified knowledge</div>
+        <div class="sub">Cloud &amp; networking services</div>
         <div class="chips">
-          <span class="chip prof">Lambda</span><span class="chip prof">S3</span><span class="chip prof">API Gateway</span>
-          <span class="chip prof">IAM</span><span class="chip prof">SNS</span><span class="chip prof">CloudWatch</span>
-          <span class="chip cert">EC2</span><span class="chip cert">VPC</span><span class="chip cert">Route 53</span>
-          <span class="chip cert">ELB</span><span class="chip cert">DynamoDB</span><span class="chip cert">CloudFront</span>
-          <span class="chip cert">Cognito</span><span class="chip cert">RDS</span>
+          <span class="chip prof">EC2</span><span class="chip prof">VPC</span><span class="chip prof">S3</span>
+          <span class="chip prof">Lambda</span><span class="chip prof">API Gateway</span><span class="chip prof">ALB / ELB</span>
+          <span class="chip prof">RDS</span><span class="chip prof">Route 53</span><span class="chip prof">ACM</span>
+          <span class="chip prof">IAM</span><span class="chip prof">CloudWatch</span><span class="chip prof">SNS</span>
+          <span class="chip prof">VPC Endpoints</span><span class="chip prof">NAT Gateway</span>
+          <span class="chip cert">DynamoDB</span><span class="chip cert">CloudFront</span><span class="chip cert">Cognito</span>
         </div>
       </div>
       <div class="card skill-block">
-        <h3><i class="fa-solid fa-network-wired" style="color:var(--accent)"></i> Networking &amp; Systems</h3>
+        <h3><i class="fa-solid fa-network-wired" style="color:var(--accent)"></i> Networking</h3>
         <div class="sub">My core background</div>
         <div class="chips">
           <span class="chip prof">TCP/IP</span><span class="chip prof">DNS</span><span class="chip prof">Routing &amp; Switching</span>
           <span class="chip prof">VLANs</span><span class="chip prof">BGP</span><span class="chip prof">OSPF</span>
           <span class="chip prof">Cisco / Meraki</span><span class="chip prof">Zscaler</span><span class="chip prof">RA VPN</span>
-          <span class="chip prof">Firewalls</span><span class="chip prof">Linux CLI</span>
+          <span class="chip prof">Firewalls</span><span class="chip prof">Multi-AZ HA</span>
         </div>
       </div>
       <div class="card skill-block">
-        <h3><i class="fa-solid fa-terminal" style="color:var(--accent)"></i> Code &amp; Tooling</h3>
-        <div class="sub">Automation, scripting, and what&rsquo;s next</div>
+        <h3><i class="fa-solid fa-terminal" style="color:var(--accent)"></i> Programming &amp; Data</h3>
+        <div class="sub">Languages, frameworks, databases</div>
         <div class="chips">
-          <span class="chip prof">Python</span><span class="chip prof">Bash</span><span class="chip prof">Git</span>
-          <span class="chip prof">SQL</span><span class="chip prof">REST APIs</span>
-          <span class="chip learn">Terraform</span><span class="chip learn">Docker</span>
-          <span class="chip learn">CI/CD (GitHub Actions)</span><span class="chip learn">Kubernetes</span>
+          <span class="chip prof">Python</span><span class="chip prof">Flask</span><span class="chip prof">Bash</span>
+          <span class="chip prof">SQL</span><span class="chip prof">PostgreSQL</span><span class="chip prof">REST APIs</span>
+          <span class="chip prof">Git</span><span class="chip prof">Linux CLI</span>
+        </div>
+      </div>
+      <div class="card skill-block">
+        <h3><i class="fa-solid fa-layer-group" style="color:var(--accent)"></i> Infrastructure &amp; DevOps</h3>
+        <div class="sub">Provisioning &amp; automation</div>
+        <div class="chips">
+          <span class="chip prof">Terraform</span><span class="chip prof">Docker</span>
+          <span class="chip prof">CI/CD (GitHub Actions)</span><span class="chip prof">Kubernetes</span>
+          <span class="chip prof">CloudFormation</span>
         </div>
       </div>
     </div>
@@ -445,24 +449,25 @@ footer{border-top:1px solid var(--line);margin-top:20px}
 
       <div class="proj">
         <div class="proj-top">
-          <div class="proj-ic" style="background:var(--amber-soft);color:var(--amber)"><i class="fa-solid fa-code-branch"></i></div>
-          <span class="pill wip"><i class="fa-solid fa-hammer"></i>In progress</span>
+          <div class="proj-ic"><i class="fa-solid fa-layer-group"></i></div>
+          <span class="pill live"><i class="fa-solid fa-circle-check"></i>Live on GitHub</span>
         </div>
         <div class="proj-body">
-          <h3>EventHub v2 &mdash; IaC &amp; CI/CD</h3>
-          <div class="yr">Terraform &middot; Automation &middot; building now</div>
-          <p>Rebuilding EventHub as reproducible infrastructure: provisioning every resource with Terraform, adding a DynamoDB data tier and Cognito login, and shipping changes through an automated pipeline.</p>
+          <h3>3-Tier Highly Available Web App</h3>
+          <div class="yr">AWS &middot; Networking &middot; 2026</div>
+          <p>A three-tier e-commerce web app on AWS, built for high availability with load-balanced compute across two Availability Zones and a private database tier.</p>
           <ul>
-            <li>Provision the full stack as code with Terraform instead of the console.</li>
-            <li>Automate build and deploy with a GitHub Actions pipeline.</li>
-            <li>Add DynamoDB and Amazon Cognito for a proper data and auth tier.</li>
+            <li>Ran a Python/Flask app on 2 EC2 instances in private subnets across two AZs, behind an Application Load Balancer.</li>
+            <li>Backed it with Amazon RDS (PostgreSQL) in an isolated DB tier inside a custom VPC with public/private subnets and route tables.</li>
+            <li>Secured with HTTPS via ACM, custom DNS via Route 53, and private EC2-to-S3 access through a VPC endpoint using an IAM role.</li>
           </ul>
           <div class="tags">
-            <span class="tag plan">Terraform</span><span class="tag plan">GitHub Actions</span>
-            <span class="tag plan">DynamoDB</span><span class="tag plan">Cognito</span>
+            <span class="tag">VPC</span><span class="tag">EC2</span><span class="tag">ALB</span>
+            <span class="tag">RDS PostgreSQL</span><span class="tag">Route 53</span><span class="tag">ACM</span>
+            <span class="tag">VPC Endpoint</span><span class="tag">IAM</span><span class="tag">Flask</span>
           </div>
           <div class="proj-foot">
-            <span class="proj-note"><i class="fa-solid fa-circle-notch"></i> Repository going public when the first milestone ships.</span>
+            <a class="proj-link" href="https://github.com/Anuj-Dhirde-27/AWS-3-Tier-Highly-Available-Web-Application" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View the code</a>
           </div>
         </div>
       </div>
